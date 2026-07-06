@@ -57,7 +57,7 @@
   --clamp-large: clamp(3rem, 2.5rem + 2vw, 3.5rem);
 
   /* Shadow */
-  --shadow-light: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-light: 0px 1px 3px rgba(185, 115, 9, 0.1);
   --shadow-medium: 0px 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-semibold: 0px 4px 32px rgba(0, 0, 0, 0.012);
   --shadow-heavy: 0px 10px 20px rgba(0, 0, 0, 0.1);
@@ -90,6 +90,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-shadow: var(--shadow-semibold);
 }
 
 .logo h1 {
@@ -116,19 +117,23 @@
   text-decoration: none;
 }
 
-.button-container {
-  background-color: var(--primary-color);
-  padding: var(--spacing-small-2) var(--spacing-medium-1);
-  border-radius: 1rem;
+.nav-links a:hover {
+  color: var(--accent-color);
 }
 
-.button-container button {
+.nav-button button {
   background-color: var(--primary-color);
   border: none;
   color: var(--background-color);
   font-size: var(--fontsize-small);
   font-weight: var(--fontweight-medium);
+  padding: var(--spacing-small-2) var(--spacing-medium-1);
+  border-radius: 1rem;
   cursor: pointer;
+}
+
+.nav-button button:hover {
+  background-color: var(--accent-color);
 }
 
 .hero-content {
@@ -197,6 +202,17 @@
   cursor: pointer;
 }
 
+.hero-buttons .primary-button:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(248, 134, 26, 0.3);
+}
+
+.hero-buttons .primary-button:active {
+  transform: translateY(0);
+}
+
 .hero-buttons .secondary-button {
   background-color: transparent;
   border: 1px solid var(--button-border-color);
@@ -206,6 +222,17 @@
   font-size: var(--fontsize-small);
   font-weight: var(--fontweight-medium);
   cursor: pointer;
+}
+
+.hero-buttons .secondary-button:hover {
+  background-color: var(--skill-background-color);
+  color: var(--title-text-color);
+  border-color: var(--skill-background-color);
+  transform: translateY(-3px);
+}
+
+.hero-buttons .secondary-button:active {
+  transform: translateY(0);
 }
 
 .about-section {
@@ -320,9 +347,14 @@
   background-color: var(--card-background-color);
   padding: var(--spacing-medium-2);
   border-radius: 0.875rem;
-  box-shadow: var(--shadow-semibold);
+  border: 1px solid var(--card-border-color);
   column-gap: var(--spacing-small-2);
-  border: 1px solid #222323;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 24px rgba(248, 134, 26, 0.3);
 }
 
 .card-icon {
@@ -410,6 +442,7 @@
   column-gap: var(--spacing-small-2);
   margin-top: var(--spacing-medium-1);
   gap: var(--spacing-small-2);
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 .project-card {
@@ -421,12 +454,18 @@
   align-items: stretch;
   box-shadow: var(--shadow-semibold);
   border: 1px solid var(--card-border-color);
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 24px rgba(248, 134, 26, 0.3);
 }
 
 .image-container {
   width: 100%;
-  height: 200px;
+  height: 100%;
   overflow: hidden;
   border-radius: 1rem 1rem 0 0;
 }
@@ -438,9 +477,14 @@
   border-radius: 1rem 1rem 0 0;
 }
 
+.project-card:hover .image-container img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
 .card-content {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -448,6 +492,7 @@
   padding: var(--spacing-medium-1);
   background-color: var(--card-background-color);
   row-gap: var(--spacing-medium-1);
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 .title-and-description {
@@ -640,7 +685,7 @@
   color: var(--title-text-color);
 }
 
-.contact-button {
+.contact-button button {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   color: var(--background-color);
@@ -648,10 +693,13 @@
   border-radius: 0.875rem;
   font-size: var(--fontsize-small);
   font-weight: var(--fontweight-medium);
+  border: none;
   cursor: pointer;
 }
 
-.contact-button button {
-  background-color: var(--primary-color);
-  border: none;
+.contact-button button:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(248, 134, 26, 0.3);
 }
